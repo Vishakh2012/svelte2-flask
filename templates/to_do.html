@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class = "my-4 mx-4" method = "post" action = "add/">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">task</label>
+      <input type="text" class="form-control" name = "item" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Please enter the task you want to do today</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+<table class="table table-dark table-str mx-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">task</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in alltodo %} 
+      <tr>
+        <th scope="row">{{ item.id }}</th>
+        <td colspan="2">{{ item.task }}</td>
+        
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
